@@ -83,6 +83,15 @@ class FlutterBluetoothSerial {
       await _methodChannel.invokeMethod('requestEnable');
 
   /// Tries to disable Bluetooth interface (if enabled).
+  ///
+  /// This method was deprecated in API level 33.
+  ///
+  /// Starting with API level 33, applications are not allowed
+  /// to enable/disable Bluetooth. Compatibility Note: For applications
+  /// targeting API level 33 or above, this API will always fail
+  /// and return false. If apps are targeting an older SDK, they can continue
+  /// to use this API.
+  @Deprecated('Deprecated in API level 33 or above')
   Future<bool?> requestDisable() async =>
       await _methodChannel.invokeMethod('requestDisable');
 
