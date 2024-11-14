@@ -45,7 +45,9 @@ public abstract class BluetoothConnection
         if (device == null) {
             throw new IOException("device not found");
         }
-
+        // @TODO "read failed, socket might closed or timeout, read ret: -1"
+        // https://github.com/edufolly/flutter_bluetooth_serial/issues/154
+        // https://stackoverflow.com/a/25647197/5552022
         BluetoothSocket socket = device.createRfcommSocketToServiceRecord(uuid); // @TODO . introduce ConnectionMethod
         if (socket == null) {
             throw new IOException("socket connection not established");
